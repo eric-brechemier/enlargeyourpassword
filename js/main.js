@@ -7,7 +7,7 @@
  * Version:   2011-03-26
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global document, window, hex_sha1, hex_sha256, hex_sha512 */
+/*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
 (function() {
   // Closure to prive private scope
 
@@ -47,6 +47,7 @@
 
   // declare aliases
   var $ = bind(document.getElementById,document),
+      md5 = hex_md5,        /*requires js/md5.js */
       sha1 = hex_sha1,      /*requires js/sha1.js */
       sha256 = hex_sha256,  /*requires js/sha256.js */
       sha512 = hex_sha512,  /*requires js/sha512.js */
@@ -78,6 +79,7 @@
   function generatePasswords(){
     // Generate SHA-1, SHA-256 and SHA-512 and assign to corresponding display.
     var concatStory = getInputValues().join(';');
+    $('md5').innerHTML = md5(concatStory);
     $('sha1').innerHTML = sha1(concatStory);
     $('sha256').innerHTML = sha256(concatStory);
     $('sha512').innerHTML = sha512(concatStory);

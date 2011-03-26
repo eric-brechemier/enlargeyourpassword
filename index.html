@@ -6,7 +6,7 @@
     <meta name="description" content=
 "Tired of reusing that same old password all over the web?
 Spice it up and get a real strong password!
-Coming in three sizes: L, XL and our favorite XXL."
+Coming in four sizes: M, L, XL and our favorite XXL."
     />
     <meta name="keywords" content="password online tools security opensource"/>
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
@@ -20,7 +20,7 @@ Coming in three sizes: L, XL and our favorite XXL."
     <p>
     Tired of reusing that same old password all over the web?
     Spice it up and get a real strong password!
-    Coming in three sizes: L, XL and our favorite XXL.
+    Coming in four sizes: M, L, XL and our favorite XXL.
     </p>
     <h1>Enlarge Your Password!</h1>
     <p>
@@ -59,6 +59,10 @@ Coming in three sizes: L, XL and our favorite XXL."
       <legend>Get Your Password</legend>
       <button type="button" id="generate">Generate Strong Passwords</button>
       <ul>
+        <li>
+          <strong>M (32 characters):</strong>
+          <span class="M password" id="md5"></span>
+        </li>
         <li>
           <strong>L (40 characters):</strong>
           <span class="L password" id="sha1"></span>
@@ -110,11 +114,12 @@ Coming in three sizes: L, XL and our favorite XXL."
         CC-BY <a href="http://eric.brechemier.name">Eric Bréchemier</a>
       </li>
       <li>
-        SHA-1, SHA-256 and SHA-512 implementations from
+        MD5, SHA-1, SHA-256 and SHA-512 implementations from
         <a href="http://pajhome.org.uk/crypt/md5/scripts.html"
         >jshash by Paul Johnston</a>
       </li>
     </ul>
+    <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/sha1.js"></script>
     <script type="text/javascript" src="js/sha256.js"></script>
     <script type="text/javascript" src="js/sha512.js"></script>

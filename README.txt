@@ -10,7 +10,7 @@ DESCRIPTION
 
   Tired of reusing that same old password all over the web?
   Spice it up and get a real strong password!
-  Coming in three sizes: L, XL and our favorite XXL.
+  Coming in four sizes: M, L, XL and our favorite XXL.
 
 LICENSE
 
@@ -18,9 +18,12 @@ LICENSE
   Creative Commons Attribution 3.0 Unported
   http://creativecommons.org/licenses/by/3.0/
 
-  Includes sha1.js, sha256.js and sha512.js from jshash
+  Includes md5.js, sha1.js, sha256.js and sha512.js from jshash
   Distributed under the BSD License
   http://pajhome.org.uk/crypt/md5/scripts.html
+  * md5.js
+    Version 2.2 Copyright (C) Paul Johnston 1999 - 2009
+    Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
   * sha1.js
     Version 2.2 Copyright Paul Johnston 2000 - 2009.
     Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
@@ -57,7 +60,7 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
     * SHA-256 generates passwords of  56 characters (size XL)
     * SHA-512 generates passwords of 128 characters (size XXL)
 
-  The family of SHA algorithms was used because:
+  The family of SHA algorithms was chosen because:
 
     * it is a published standard
       (I do not believe in security through obscurity)
@@ -70,6 +73,9 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
 
     * generated strings contain only alphanumerical characters
       (web sites may reject special characters, symbols and punctuation)
+
+  I later added MD5 to generate passwords of 32 characters (size M), when
+  faced to a sign up page that refused any password longer than 32 characters.
 
 HISTORY
 
