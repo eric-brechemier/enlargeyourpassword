@@ -101,7 +101,7 @@
   };
 
   foreach(inputs,function(input){
-    input.onkeydown = onStoryChange;
+    input.onkeyup = onStoryChange;
     input.onchange = onStoryChange;
   });
 
