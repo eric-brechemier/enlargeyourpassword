@@ -6,7 +6,7 @@
     <meta name="description" content=
 "Tired of reusing that same old password all over the web?
 Spice it up and get a real strong password!
-Coming in three sizes: L, XL and our favorite XXL."
+Coming in four sizes: M, L, XL and our favorite XXL."
     />
     <meta name="keywords" content="password online tools security opensource"/>
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
@@ -15,62 +15,65 @@ Coming in three sizes: L, XL and our favorite XXL."
     <meta name="DC.rights" content="CC-BY Eric Bréchemier" />
     <meta name="DC.rights" scheme="DCTERMS.URI" content=
       "http://creativecommons.org/licenses/by-nc-sa/3.0/" />
-    <!--link rel="shortcut icon" href="favicon.ico" /-->
   </head>
   <body>
     <p>
     Tired of reusing that same old password all over the web?
     Spice it up and get a real strong password!
-    Coming in three sizes: L, XL and our favorite XXL.
+    Coming in four sizes: M, L, XL and our favorite XXL.
     </p>
-    <h1>Enlarge Your Password! (STATIC PROTOTYPE)</h1>
+    <h1>Enlarge Your Password!</h1>
     <p>
     Come back each time you need to access this pesky service that
     requires yet another password. Tell your story in the very same way
     (including case and punctuation) and you will get the exact same
     passwords again.
     </p>
-    <fieldset>
+    <fieldset id="story">
       <legend>Tell Your Story!</legend>
       <p>
         <label for="service">I want to access</label>
-        <input type="text" name="service" value="Enlarge Your Password" />
+        <input type="text" name="service" autocomplete="off"
+          placeholder="Enlarge Your Password" />
         <label for="user">as</label>
-        <input type="text" name="user" value="John Doe" />
+        <input type="text" name="user" autocomplete="off"
+          placeholder="John Doe" />
         <label for="period">in</label>
-        <input type="text" name="period" value="2011" />.
+        <input type="text" name="period" autocomplete="off"
+          placeholder="2011" />.
       </p>
       <p>
         <label for="lamepassword">I want to get rid of my lame password</label>
-        <input type="text" name="lamepassword" value="monkey" />
+        <input type="password" name="lamepassword" autocomplete="off"
+          placeholder="monkey" />
         to feel warm and fuzzy inside.
       </p>
       <p>
         <label for="openquestion">Future Self, this question is for you:</label>
-        <input type="text" name="openquestion" value="Is it really you" />?
+        “<input type="text" name="openquestion" autocomplete="off"
+          placeholder="Is it really you" />?”
         I fear there might be no answer.
       </p>
     </fieldset>
     <fieldset>
       <legend>Get Your Password</legend>
-      <button type="button">Generate Strong Passwords</button>
-      <!--
-        In this prototype, values below are fixed.
-        They correspond to the actual SHA hashes generated for the concatenated
-        string "Enlarge Your Password;John Doe;2011;monkey;Is it really you"
-      -->
+      <button type="button" id="generate">Generate Strong Passwords</button>
       <ul>
         <li>
-          <strong>L:</strong>
-          <span class="L password">4141ec585c5b6adb0c87254780b08ec89c76b964</span>
+          <strong>M (32 characters):</strong>
+          <span class="M password" id="md5"></span>
         </li>
         <li>
-          <strong>XL:</strong>
-          <span class="XL password">4f0452cf3abfa24ace90fb2d7355a571696c95394b307db3f3105b3f10eca594</span>
+          <strong>L (40 characters):</strong>
+          <span class="L password" id="sha1"></span>
         </li>
         <li>
-          <strong>XXL:</strong>
-          <span class="XXL password">5b7c90f4b27e69b8d94d8e16038ea96cf76ed63085d75e9b762b47bb102bc66b7201bda6543baed7f6baeff211c98e64fe6cc815dac60fab3f243b814b1b00a1</span>
+          <strong>XL (64 characters):</strong>
+          <span class="XL password" id="sha256"></span>
+        </li>
+        <li>
+          <strong>XXL (128 characters):</strong>
+          <span class="XXL password" id="sha512"></span>
         </li>
       </ul>
     </fieldset>
@@ -110,7 +113,16 @@ Coming in three sizes: L, XL and our favorite XXL."
         Design and Development
         CC-BY <a href="http://eric.brechemier.name">Eric Bréchemier</a>
       </li>
+      <li>
+        MD5, SHA-1, SHA-256 and SHA-512 implementations from
+        <a href="http://pajhome.org.uk/crypt/md5/scripts.html"
+        >jshash by Paul Johnston</a>
+      </li>
     </ul>
+    <script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="js/sha1.js"></script>
+    <script type="text/javascript" src="js/sha256.js"></script>
+    <script type="text/javascript" src="js/sha512.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
-
