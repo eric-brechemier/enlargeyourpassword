@@ -18,6 +18,19 @@ LICENSE
   Creative Commons Attribution 3.0 Unported
   http://creativecommons.org/licenses/by/3.0/
 
+  Includes sha1.js, sha256.js and sha512.js from jshash
+  Distributed under the BSD License
+  http://pajhome.org.uk/crypt/md5/scripts.html
+  * sha1.js
+    Version 2.2 Copyright Paul Johnston 2000 - 2009.
+    Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+  * sha256.js
+    Version 2.2 Copyright Angel Marin, Paul Johnston 2000 - 2009.
+    Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+  * sha512.js
+    Version 2.2 Copyright Anonymous Contributor, Paul Johnston 2000 - 2009.
+    Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+
 LANGUAGES
 
   HTML, CSS, JavaScript
@@ -50,7 +63,7 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
       (I do not believe in security through obscurity)
 
     * open-source JavaScript implementations are available
-      (e.g. Stanford JavaScript Crypto Library)
+      (e.g. jshash, Stanford JavaScript Crypto Library)
 
     * it comes in several sizes
       (web sites may reject passwords over a certain length)
