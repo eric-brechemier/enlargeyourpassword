@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head profile="http://dublincore.org/documents/2008/08/04/dc-html/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Enlarge Your Password!</title>
+    <meta name="description" content=
+"Tired of reusing that same old password all over the web?
+Spice it up and get a real strong password!
+Coming in three sizes: L, XL and our favorite XXL."
+    />
+    <meta name="keywords" content="password online tools security opensource"/>
+    <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
+    <meta name="DC.creator" content="Eric Bréchemier" />
+    <meta name="DC.date" content="2011-03-26" />
+    <meta name="DC.rights" content="CC-BY Eric Bréchemier" />
+    <meta name="DC.rights" scheme="DCTERMS.URI" content=
+      "http://creativecommons.org/licenses/by-nc-sa/3.0/" />
+    <!--link rel="shortcut icon" href="favicon.ico" /-->
+  </head>
+  <body>
+    <p>
+    Tired of reusing that same old password all over the web?
+    Spice it up and get a real strong password!
+    Coming in three sizes: L, XL and our favorite XXL.
+    </p>
+    <h1>Enlarge Your Password!</h1>
+    <p>
+    Come back each time you need to access this pesky service that
+    requires yet another password. Tell your story in the very same way
+    (including case and punctuation) and you will get the exact same
+    passwords again.
+    </p>
+    <fieldset>
+      <legend>Tell Your Story!</legend>
+      <p>
+        <label for="service">I want to access</label>
+        <input type="text" name="service" value="Enlarge Your Password" />
+        <label for="user">as</label>
+        <input type="text" name="user" value="John Doe" />
+        <label for="period">in</label>
+        <input type="text" name="period" value="2011" />.
+      </p>
+      <p>
+        <label for="lamepassword">I want to get rid of my lame password</label>
+        <input type="text" name="lamepassword" value="monkey" />
+        to feel warm and fuzzy inside.
+      </p>
+      <p>
+        <label for="openquestion">Future Self, this question is for you:</label>
+        <input type="text" name="openquestion" value="Is it really you" />?
+        I fear there might be no answer.
+      </p>
+    </fieldset>
+    <fieldset>
+      <legend>Get Your Password</legend>
+      <button type="button">Generate Strong Passwords</button>
+      <!--
+        In this prototype, values below are fixed.
+        They correspond to the actual SHA hashes generated for the concatenated
+        string "Enlarge Your Password;John Doe;2011;monkey;Is it really you"
+      -->
+      <ul>
+        <li>
+          <strong>L:</strong>
+          <span class="L password">4141ec585c5b6adb0c87254780b08ec89c76b964</span>
+        </li>
+        <li>
+          <strong>XL:</strong>
+          <span class="XL password">4f0452cf3abfa24ace90fb2d7355a571696c95394b307db3f3105b3f10eca594</span>
+        </li>
+        <li>
+          <strong>XXL:</strong>
+          <span class="XXL password">5b7c90f4b27e69b8d94d8e16038ea96cf76ed63085d75e9b762b47bb102bc66b7201bda6543baed7f6baeff211c98e64fe6cc815dac60fab3f243b814b1b00a1</span>
+        </li>
+      </ul>
+    </fieldset>
+
+    <h3>Hints</h3>
+    <p>
+    The three passwords above are updated as you type.
+    You may fill in as little or as much information as you wish.
+    The more specific you get, the strongest the generated passwords will be,
+    because it is not all about size you know.
+    </p>
+    <p>
+    You may find useful to double-click the password of your choice to select
+    it in full, and copy it using Ctrl+C or drag and drop it to the password
+    field of the service that you want to access.
+    </p>
+
+    <h2>About</h2>
+    <p>
+    <a href="http://enlargeyourpassword.com">Enlarge Your Password</a>
+    is an open source
+    <a href="https://github.com/eric-brechemier/enlargeyourpassword"
+    >project hosted on GitHub</a>.
+    </p>
+    <p>
+    It is a very simple web app, designed for everyday use. The goal is to
+    generate a strong password to access a web site by filling in a form with
+    simple yet unique information. All inputs are optional and the password is
+    generated on the fly, which lets the user choose the level of details to
+    get more or less security. The same password is generated consistently for
+    the same inputs.
+    </p>
+
+    <h3>Credits</h3>
+    <ul>
+      <li>
+        Design and Development
+        CC-BY <a href="http://eric.brechemier.name">Eric Bréchemier</a>
+      </li>
+    </ul>
+  </body>
+</html>
+
