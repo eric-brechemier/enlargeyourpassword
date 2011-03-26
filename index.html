@@ -15,7 +15,6 @@ Coming in three sizes: L, XL and our favorite XXL."
     <meta name="DC.rights" content="CC-BY Eric Bréchemier" />
     <meta name="DC.rights" scheme="DCTERMS.URI" content=
       "http://creativecommons.org/licenses/by-nc-sa/3.0/" />
-    <!--link rel="shortcut icon" href="favicon.ico" /-->
   </head>
   <body>
     <p>
@@ -23,14 +22,14 @@ Coming in three sizes: L, XL and our favorite XXL."
     Spice it up and get a real strong password!
     Coming in three sizes: L, XL and our favorite XXL.
     </p>
-    <h1>Enlarge Your Password! (STATIC PROTOTYPE)</h1>
+    <h1>Enlarge Your Password!</h1>
     <p>
     Come back each time you need to access this pesky service that
     requires yet another password. Tell your story in the very same way
     (including case and punctuation) and you will get the exact same
     passwords again.
     </p>
-    <fieldset>
+    <fieldset id="story">
       <legend>Tell Your Story!</legend>
       <p>
         <label for="service">I want to access</label>
@@ -53,24 +52,19 @@ Coming in three sizes: L, XL and our favorite XXL."
     </fieldset>
     <fieldset>
       <legend>Get Your Password</legend>
-      <button type="button">Generate Strong Passwords</button>
-      <!--
-        In this prototype, values below are fixed.
-        They correspond to the actual SHA hashes generated for the concatenated
-        string "Enlarge Your Password;John Doe;2011;monkey;Is it really you"
-      -->
+      <button type="button" id="generate">Generate Strong Passwords</button>
       <ul>
         <li>
           <strong>L:</strong>
-          <span class="L password">4141ec585c5b6adb0c87254780b08ec89c76b964</span>
+          <span class="L password" id="sha1"></span>
         </li>
         <li>
           <strong>XL:</strong>
-          <span class="XL password">4f0452cf3abfa24ace90fb2d7355a571696c95394b307db3f3105b3f10eca594</span>
+          <span class="XL password" id="sha256"></span>
         </li>
         <li>
           <strong>XXL:</strong>
-          <span class="XXL password">5b7c90f4b27e69b8d94d8e16038ea96cf76ed63085d75e9b762b47bb102bc66b7201bda6543baed7f6baeff211c98e64fe6cc815dac60fab3f243b814b1b00a1</span>
+          <span class="XXL password" id="sha512"></span>
         </li>
       </ul>
     </fieldset>
@@ -116,6 +110,9 @@ Coming in three sizes: L, XL and our favorite XXL."
         >jshash by Paul Johnston</a>
       </li>
     </ul>
+    <script type="text/javascript" src="js/sha1.js"></script>
+    <script type="text/javascript" src="js/sha256.js"></script>
+    <script type="text/javascript" src="js/sha512.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>
-
