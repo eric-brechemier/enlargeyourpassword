@@ -7,7 +7,7 @@
  * Version:   2011-03-26
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global document, window */
+/*global document, window, hex_sha1, hex_sha256, hex_sha512 */
 (function() {
   // Closure to prive private scope
 
@@ -17,7 +17,7 @@
     // Create a closure to call given function applied to given thisArg
     return function(){
       return func.apply(thisArg,arguments);
-    }
+    };
   }
 
   function foreach(array,func){
@@ -50,9 +50,6 @@
       sha1 = hex_sha1,      /*requires js/sha1.js */
       sha256 = hex_sha256,  /*requires js/sha256.js */
       sha512 = hex_sha512,  /*requires js/sha512.js */
-
-  // constants
-      ELEMENT_NODE = 1,
 
   // private fields
       // array of DOM input elements in the story, in document order
