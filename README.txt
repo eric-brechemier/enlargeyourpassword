@@ -80,4 +80,7 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
 HISTORY
 
   2011-03-26, First release of http://enlargeyourpassword.com (no CSS style)
+  2011-04-02, Empty all fields on page load/unload and after 2'30 in background
+  2011-XX-XX, Replace values with *** after input for enhanced privacy
+  2011-XX-XX, Added CSS Styles
 
