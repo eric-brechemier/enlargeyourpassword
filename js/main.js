@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2011-03-26
+ * Version:   2011-04-01
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -69,8 +69,15 @@
     collectInputs(node.nextSibling);
   }
 
+  function emptyInputs(){
+    // Empty all collected inputs.
+    return map(inputs,function(input){
+      input.value = '';
+    });
+  }
+
   function getInputValues(){
-    // Get an array of values of all inputs in the story, in document order.
+    // Get an array of values of all collected inputs.
     return map(inputs,function(input){
       return input.value;
     });
@@ -94,6 +101,12 @@
 
   // Init
   collectInputs( $('story') );
+
+  // ensure that inputs are empty in tab restored from history
+  window.onload = emptyInputs;
+  window.onunload = emptyInputs; // Note: this one has no effect in Firefox,
+                                 // the tab is restored with its previous state
+
 
   // The generate button acts as a "visual proxy" for the generation process.
   // It gets hidden has soon as the story is updated, and is never shown again,
