@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2011-04-01
+ * Version:   2011-04-02
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -54,7 +54,14 @@
 
   // private fields
       // array of DOM input elements in the story, in document order
-      inputs = [];
+      inputs = [],
+      // any, timeout to reset inputs after TIMEOUT_DELAY_MS in background
+      resetTimeout = null,
+
+  // constants
+      // number, duration in milliseconds before resetting inputs when the
+      // window is in the background (blurred)
+      TIMEOUT_DELAY_MS = 150 * 1000;
 
   function collectInputs(node){
     // Collect all input elements, recursively, in given node.
@@ -107,6 +114,17 @@
   window.onunload = emptyInputs; // Note: this one has no effect in Firefox,
                                  // the tab is restored with its previous state
 
+  // reset after TIMEOUT_DELAY_MS in the background (window loses focus)
+  window.onblur = function(){
+    resetTimeout = setTimeout(function(){
+      emptyInputs();
+    },TIMEOUT_DELAY_MS);
+  };
+
+  // cancel the timeout when window is back to foreground (gains focus)
+  window.onfocus = function(){
+    clearTimeout(resetTimeout);
+  };
 
   // The generate button acts as a "visual proxy" for the generation process.
   // It gets hidden has soon as the story is updated, and is never shown again,
