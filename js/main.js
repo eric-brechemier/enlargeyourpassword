@@ -76,6 +76,13 @@
     collectInputs(node.nextSibling);
   }
 
+  function getInputValues(){
+    // Get an array of values of all collected inputs.
+    return map(inputs,function(input){
+      return input.value;
+    });
+  }
+
   function reset(){
     // Reset: empty all collected inputs as well as generated passwords.
     return map(inputs,function(input){
@@ -85,13 +92,6 @@
     $('sha1').innerHTML = '';
     $('sha256').innerHTML = '';
     $('sha512').innerHTML = '';
-  }
-
-  function getInputValues(){
-    // Get an array of values of all collected inputs.
-    return map(inputs,function(input){
-      return input.value;
-    });
   }
 
   function generatePasswords(){
