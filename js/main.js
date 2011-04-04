@@ -85,7 +85,7 @@
 
   function reset(){
     // Reset: empty all collected inputs as well as generated passwords.
-    return map(inputs,function(input){
+    foreach(inputs,function(input){
       input.value = '';
     });
     $('md5').innerHTML = '';
