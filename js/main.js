@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2011-04-02
+ * Version:   2011-04-04
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -76,8 +76,8 @@
     collectInputs(node.nextSibling);
   }
 
-  function emptyInputs(){
-    // Empty all collected inputs.
+  function reset(){
+    // Reset: empty all collected inputs as well as generated passwords.
     return map(inputs,function(input){
       input.value = '';
     });
@@ -110,14 +110,14 @@
   collectInputs( $('story') );
 
   // ensure that inputs are empty in tab restored from history
-  window.onload = emptyInputs;
-  window.onunload = emptyInputs; // Note: this one has no effect in Firefox,
-                                 // the tab is restored with its previous state
+  window.onload = reset;
+  window.onunload = reset; // Note: this one has no effect in Firefox, when a
+                           // tab is restored from history, it still has values
 
   // reset after TIMEOUT_DELAY_MS in the background (window loses focus)
   window.onblur = function(){
     resetTimeout = setTimeout(function(){
-      emptyInputs();
+      reset();
     },TIMEOUT_DELAY_MS);
   };
 
