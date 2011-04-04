@@ -81,6 +81,10 @@
     return map(inputs,function(input){
       input.value = '';
     });
+    $('md5').innerHTML = '';
+    $('sha1').innerHTML = '';
+    $('sha256').innerHTML = '';
+    $('sha512').innerHTML = '';
   }
 
   function getInputValues(){
