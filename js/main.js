@@ -99,18 +99,14 @@
     $('sha512').innerHTML = '';
   }
 
-  function generatePasswords(){
+  function generatePasswords(values){
     // Generate SHA-1, SHA-256 and SHA-512 and assign to corresponding display.
+    //
+    // parameter:
+    //   values - array, a list of string values to be concatenated
+    //            using ';' as separator.
 
-    var inputs = getInputValues(),
-        concatStory;
-
-    if ( inputs.join('') === '' ){
-      // all empty
-      reset();
-      return;
-    }
-    concatStory = getInputValues().join(';');
+    var concatStory = values.join(';');
     $('md5').innerHTML = md5(concatStory);
     $('sha1').innerHTML = sha1(concatStory);
     $('sha256').innerHTML = sha256(concatStory);
@@ -120,8 +116,16 @@
   function onStoryChange(){
     // Callback for any change of value in an input of the story.
 
+    var values = getInputValues();
+
+    if ( values.join('') === '' ){
+      // all empty
+      reset();
+      return;
+    }
+
     $('generate').style.display = 'none';
-    generatePasswords();
+    generatePasswords(values);
   }
 
   // Init
