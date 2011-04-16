@@ -84,10 +84,15 @@
   }
 
   function reset(){
-    // Reset: empty all collected inputs as well as generated passwords.
+    // Reset the page to its default state
+
+    // empty all collected inputs
     foreach(inputs,function(input){
       input.value = '';
     });
+    // restore button to its default display
+    $('generate').style.display = '';
+    // empty generated passwords
     $('md5').innerHTML = '';
     $('sha1').innerHTML = '';
     $('sha256').innerHTML = '';
