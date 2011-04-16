@@ -101,7 +101,16 @@
 
   function generatePasswords(){
     // Generate SHA-1, SHA-256 and SHA-512 and assign to corresponding display.
-    var concatStory = getInputValues().join(';');
+
+    var inputs = getInputValues(),
+        concatStory;
+
+    if ( inputs.join('') === '' ){
+      // all empty
+      reset();
+      return;
+    }
+    concatStory = getInputValues().join(';');
     $('md5').innerHTML = md5(concatStory);
     $('sha1').innerHTML = sha1(concatStory);
     $('sha256').innerHTML = sha256(concatStory);
