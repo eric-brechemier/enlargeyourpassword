@@ -113,7 +113,7 @@
 
     var
       concatStory = values.join(';'),
-      md5AsRawString = rstr_md5(concatStory),
+      md5AsRawString = rstr_md5(str2rstr_utf8(concatStory)),
       md5AsHex = rstr2hex(md5AsRawString),
       md5BytesArray = map(md5AsRawString, function(c){
         return c.charCodeAt(0);
