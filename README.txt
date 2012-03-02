@@ -94,8 +94,8 @@ HISTORY
   2011-03-26, First release of http://enlargeyourpassword.com (no CSS style)
   2011-04-02, Empty all fields on page load/unload and after 2'30 in background
   2011-04-04, Fixed wording, empty generated passwords as well on reset
-  2011-XX-XX, Added CSS Styles
-  2011-XX-XX, Added stealth mode: same foreground/background for inputs
-  2011-XX-XX, Added button to copy generated passwords
-  2011-XX-XX, Hide generated passwords in stealth mode
+  2012-01-23, Added CSS Styles: pink colors, custom font for title
+  2012-XX-XX, Added stealth mode: same foreground/background for inputs
+  2012-XX-XX, Added button to copy generated passwords
+  2012-XX-XX, Hide generated passwords in stealth mode
 
