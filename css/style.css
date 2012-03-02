@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2012-01-23
+ * Version:   2012-03-02
  */
 
 html, body, h1, h2, h3, p, span, em, strong, fieldset, legend, label, ul, li {
@@ -114,7 +114,7 @@ fieldset li {
 }
 
 li:before {
-  content: "#";
+  content: "# ";
 }
 fieldset li:before {
   content: "";
