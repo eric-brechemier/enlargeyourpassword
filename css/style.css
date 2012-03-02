@@ -120,7 +120,12 @@ fieldset li:before {
   content: "";
 }
 
-/* a width must be declared for overflow in parent li */
 .password {
+  /* a width must be declared for overflow in parent li */
   width: 40em;
+  /*
+  reduce discomfort by displaying rapidly changing passwords in fixed width
+  using a monospace font
+  */
+  font-family: "Lucida Console", "Lucida Sans Typewriter", monospace;
 }
