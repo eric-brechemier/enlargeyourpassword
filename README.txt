@@ -10,7 +10,7 @@ DESCRIPTION
 
   Tired of reusing that same old password all over the web?
   Spice it up and get a real strong password!
-  Coming in four sizes: M, L, XL and our favorite XXL.
+  Coming in five sizes: S, M, L, XL and our favorite XXL.
 
 LICENSE
 
@@ -33,6 +33,14 @@ LICENSE
   * sha512.js
     Version 2.2 Copyright Anonymous Contributor, Paul Johnston 2000 - 2009.
     Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+
+  Includes ascii85.js from DojoX Encoding
+  Distributed under the BSD License part of the Dojo ToolKit SDK
+  http://dojotoolkit.org/reference-guide/dojox/encoding.html
+  http://trac.dojotoolkit.org/browser/dojox/trunk/LICENSE
+  * ascii85.js
+    Version 0.1.0, 2007-07-30, Copyright (C) the Dojo Foundation
+    Authors: Eugene Lazutkin, Tom Trenka
 
 LANGUAGES
 
@@ -76,6 +84,10 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
 
   I later added MD5 to generate passwords of 32 characters (size M), when
   faced to a sign up page that refused any password longer than 32 characters.
+
+  Similarly, I added ASCII85 encoding of MD5 to get passwords of 20 characters
+  (size S) to comply with a sign up page that required to choose a password
+  between 5 and 20 characters.
 
 HISTORY
 

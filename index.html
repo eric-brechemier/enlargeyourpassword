@@ -6,12 +6,12 @@
     <meta name="description" content=
 "Tired of reusing that same old password all over the web?
 Spice it up and get a real strong password!
-Coming in four sizes: M, L, XL and our favorite XXL."
+Coming in five sizes: S, M, L, XL and our favorite XXL."
     />
     <meta name="keywords" content="password online tools security opensource"/>
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
     <meta name="DC.creator" content="Eric Bréchemier" />
-    <meta name="DC.date" content="2012-01-23" />
+    <meta name="DC.date" content="2012-03-02" />
     <meta name="DC.rights" content="CC-BY Eric Bréchemier" />
     <meta name="DC.rights" scheme="DCTERMS.URI" content=
       "http://creativecommons.org/licenses/by-nc-sa/3.0/" />
@@ -21,7 +21,7 @@ Coming in four sizes: M, L, XL and our favorite XXL."
     <p>
       <span>Tired of reusing that same old password all over the web?</span>
       <span>Spice it up and get a real strong password!</span>
-      <span>Coming in four sizes: M, L, XL and our favorite XXL.</span>
+      <span>Coming in five sizes: S, M, L, XL and our favorite XXL.</span>
     </p>
     <h1>Enlarge Your Password!</h1>
     <p>
@@ -63,6 +63,10 @@ Coming in four sizes: M, L, XL and our favorite XXL."
       <button type="button" id="generate">Generate Strong Passwords</button>
       <ul>
         <li>
+          <strong>S (20 characters):</strong>
+          <span class="S password" id="md5AsAscii85"></span>
+        </li>
+        <li>
           <strong>M (32 characters):</strong>
           <span class="M password" id="md5"></span>
         </li>
@@ -93,7 +97,7 @@ Coming in four sizes: M, L, XL and our favorite XXL."
       <strong>because it is not all about size you know.</strong>
     </p>
     <p>
-      <span>These passwords rank from Strong to Very Strong</span>
+      <span>Passwords starting at size S rank from Strong to Very Strong</span>
       <span>in <a href="http://passwordstrength.net/"
       >online</a>
       <a href="http://www.passwordmeter.com/"
@@ -102,7 +106,7 @@ Coming in four sizes: M, L, XL and our favorite XXL."
       >strength</a>
       <a href="https://www.microsoft.com/security/pc-security/password-checker.aspx"
       >checkers</a>.</span>
-      <span>The size M is the most compatible one</span>
+      <span>S &amp; M sizes are compatible with most services</span>
       <span>and still secured enough for sensitive information.</span>
       <span>Longer passwords will be even harder to break</span>
       <span>but may not be allowed by all services.</span>
@@ -147,9 +151,14 @@ Coming in four sizes: M, L, XL and our favorite XXL."
     <p>
       <span>The same password is generated consistently</span>
       <span>for the same inputs.</span>
-      <span>Four sizes of passwords are available,</span>
-      <span>corresponding to different hash algorithms:</span>
-      <span>M (MD5), L (SHA-1), XL (SHA-256), XXL (SHA-512).</span>
+      <span>Five sizes of passwords are available,</span>
+      <span>corresponding to different</span>
+      <span>hash algorithms and encodings:</span>
+      <span>S (MD5/ASCII85),</span>
+      <span>M (MD5/HEX),</span>
+      <span>L (SHA-1/HEX),</span>
+      <span>XL (SHA-256/HEX),</span>
+      <span>and XXL (SHA-512/HEX).</span>
     </p>
 
     <h3>Credits</h3>
@@ -163,11 +172,18 @@ Coming in four sizes: M, L, XL and our favorite XXL."
         <a href="http://pajhome.org.uk/crypt/md5/scripts.html"
         >jshash by Paul Johnston</a>
       </li>
+      <li>
+        ASCII85 implementation from
+        <a href="http://dojotoolkit.org/reference-guide/dojox/encoding.html"
+        >DojoX Encoding by Eugene Lazutkin, Tom Trenka</a>
+      </li>
     </ul>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/sha1.js"></script>
     <script type="text/javascript" src="js/sha256.js"></script>
     <script type="text/javascript" src="js/sha512.js"></script>
+    <script type="text/javascript" src="js/define.ascii85.js"></script>
+    <script type="text/javascript" src="js/ascii85.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
   </body>
 </html>

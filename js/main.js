@@ -97,6 +97,7 @@
     // restore button to its default display
     $('generate').style.display = '';
     // empty generated passwords
+    $('md5AsAscii85').innerHTML = '';
     $('md5').innerHTML = '';
     $('sha1').innerHTML = '';
     $('sha256').innerHTML = '';
@@ -104,14 +105,23 @@
   }
 
   function generatePasswords(values){
-    // Generate SHA-1, SHA-256 and SHA-512 and assign to corresponding display.
+    // Generate passwords and assign to corresponding elements in display.
     //
     // parameter:
     //   values - array, a list of string values to be concatenated
     //            using ';' as separator.
 
-    var concatStory = values.join(';');
-    $('md5').innerHTML = md5(concatStory);
+    var
+      concatStory = values.join(';'),
+      md5AsRawString = rstr_md5(concatStory),
+      md5AsHex = rstr2hex(md5AsRawString),
+      md5BytesArray = map(md5AsRawString, function(c){
+        return c.charCodeAt(0);
+      }),
+      md5AsAscii85 = ascii85.encode(md5BytesArray);
+
+    $('md5AsAscii85').innerHTML = md5AsAscii85;
+    $('md5').innerHTML = md5AsHex;
     $('sha1').innerHTML = sha1(concatStory);
     $('sha256').innerHTML = sha256(concatStory);
     $('sha512').innerHTML = sha512(concatStory);
