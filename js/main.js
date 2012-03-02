@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2011-04-04
+ * Version:   2012-03-02
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -59,9 +59,13 @@
       resetTimeout = null,
 
   // constants
+      // number, one second in milliseconds
+      SECONDS_IN_MS = 1000,
+      // number, one minute in milliseconds
+      MINUTES_IN_MS = 60 * SECONDS_IN_MS,
       // number, duration in milliseconds before resetting inputs when the
       // window is in the background (blurred)
-      TIMEOUT_DELAY_MS = 150 * 1000;
+      TIMEOUT_DELAY_MS = 2.5 * MINUTES_IN_MS;
 
   function collectInputs(node){
     // Collect all input elements, recursively, in given node.
