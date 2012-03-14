@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2011-04-04
+ * Version:   2012-03-02
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -59,9 +59,13 @@
       resetTimeout = null,
 
   // constants
+      // number, one second in milliseconds
+      SECONDS_IN_MS = 1000,
+      // number, one minute in milliseconds
+      MINUTES_IN_MS = 60 * SECONDS_IN_MS,
       // number, duration in milliseconds before resetting inputs when the
       // window is in the background (blurred)
-      TIMEOUT_DELAY_MS = 150 * 1000;
+      TIMEOUT_DELAY_MS = 2.5 * MINUTES_IN_MS;
 
   function collectInputs(node){
     // Collect all input elements, recursively, in given node.
@@ -93,6 +97,7 @@
     // restore button to its default display
     $('generate').style.display = '';
     // empty generated passwords
+    $('md5AsAscii85').innerHTML = '';
     $('md5').innerHTML = '';
     $('sha1').innerHTML = '';
     $('sha256').innerHTML = '';
@@ -100,14 +105,23 @@
   }
 
   function generatePasswords(values){
-    // Generate SHA-1, SHA-256 and SHA-512 and assign to corresponding display.
+    // Generate passwords and assign to corresponding elements in display.
     //
     // parameter:
     //   values - array, a list of string values to be concatenated
     //            using ';' as separator.
 
-    var concatStory = values.join(';');
-    $('md5').innerHTML = md5(concatStory);
+    var
+      concatStory = values.join(';'),
+      md5AsRawString = rstr_md5(str2rstr_utf8(concatStory)),
+      md5AsHex = rstr2hex(md5AsRawString),
+      md5BytesArray = map(md5AsRawString, function(c){
+        return c.charCodeAt(0);
+      }),
+      md5AsAscii85 = ascii85.encode(md5BytesArray);
+
+    $('md5AsAscii85').innerHTML = md5AsAscii85;
+    $('md5').innerHTML = md5AsHex;
     $('sha1').innerHTML = sha1(concatStory);
     $('sha256').innerHTML = sha256(concatStory);
     $('sha512').innerHTML = sha512(concatStory);
