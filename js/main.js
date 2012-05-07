@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2012-03-02
+ * Version:   2012-05-07
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -104,6 +104,28 @@
     $('sha512').innerHTML = '';
   }
 
+  function escapeHtmlText(text){
+    // Escape < and & which may be interpreted as markup in HTML text
+    //
+    // parameter:
+    //   text - string, text which may contain < and &
+    //
+    // returns:
+    //   string, the same text with
+    //     '<' replaced with &lt; and
+    //     '&' replaced with &amp;
+
+    var
+      escaped = {
+        '<': '&lt;',
+        '&': '&amp;'
+      };
+
+    return text.replace(/[<&]/g,function(match){
+      return escaped[match];
+    });
+  }
+
   function generatePasswords(values){
     // Generate passwords and assign to corresponding elements in display.
     //
@@ -120,7 +142,7 @@
       }),
       md5AsAscii85 = ascii85.encode(md5BytesArray);
 
-    $('md5AsAscii85').innerHTML = md5AsAscii85;
+    $('md5AsAscii85').innerHTML = escapeHtmlText(md5AsAscii85);
     $('md5').innerHTML = md5AsHex;
     $('sha1').innerHTML = sha1(concatStory);
     $('sha256').innerHTML = sha256(concatStory);
