@@ -95,6 +95,7 @@ HISTORY
   2011-04-02, Empty all fields on page load/unload and after 2'30 in background
   2011-04-04, Fixed wording, empty generated passwords as well on reset
   2012-01-23, Added CSS Styles: pink colors, custom font for title
+  2012-05-07, Completed support for size S using ASCII85 encoding of MD5
   XXXX-XX-XX, Added stealth mode: same foreground/background for inputs
   XXXX-XX-XX, Added button to copy generated passwords
   XXXX-XX-XX, Hide generated passwords in stealth mode
