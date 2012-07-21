@@ -10,7 +10,7 @@ DESCRIPTION
 
   Tired of reusing that same old password all over the web?
   Spice it up and get a real strong password!
-  Coming in five sizes: S, M, L, XL and our favorite XXL.
+  Coming in seven sizes from XXS to our favorite XXL.
 
 LICENSE
 
@@ -41,6 +41,15 @@ LICENSE
   * ascii85.js
     Version 0.1.0, 2007-07-30, Copyright (C) the Dojo Foundation
     Authors: Eugene Lazutkin, Tom Trenka
+
+  Includes crc.js from HTML source of JavaScript CRC
+  http://www.digsys.se/JavaScript/CRC.aspx
+  Developed by Anders Danielsson
+    XHTML / JavaScript source code        September 19, 2010
+    Copyright (c) 2003-2012 Scandinavian Digital Systems AB
+    Internet: http://www.digsys.se
+    Freeware: The source code and its methods and algorithms may be
+              used as desired without restrictions.
 
 LANGUAGES
 
@@ -89,6 +98,15 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
   (size S) to comply with a sign up page that required to choose a password
   between 5 and 20 characters.
 
+  Finally, I added the size XS to get even shorter passwords for sign up
+  pages of two services: the first one limited to 8 to 12 characters with
+  some punctuation allowed, the second to 10 characters without punctuation.
+  For the size XS, I concatenated the hex values of CRC32 and CRC8.
+
+  I also used CRC32 for the size XXS, to get 6-digit passwords for log in
+  widgets used by banks: CRC32 is computed as a signed integer and then
+  truncated to the last 6 decimal digits.
+
 HISTORY
 
   2011-03-26, First release of http://enlargeyourpassword.com (no CSS style)
@@ -96,6 +114,7 @@ HISTORY
   2011-04-04, Fixed wording, empty generated passwords as well on reset
   2012-01-23, Added CSS Styles: pink colors, custom font for title
   2012-05-07, Completed support for size S using ASCII85 encoding of MD5
+  2012-07-21, Added support for sizes XS and XXS using CRC32 and CRC8
   XXXX-XX-XX, Added stealth mode: same foreground/background for inputs
   XXXX-XX-XX, Added button to copy generated passwords
   XXXX-XX-XX, Hide generated passwords in stealth mode

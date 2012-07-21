@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2012-05-07
+ * Version:   2012-07-21
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
@@ -97,11 +97,13 @@
     // restore button to its default display
     $('generate').style.display = '';
     // empty generated passwords
+    $('crc32As6Digits').innerHTML = '';
+    $('crc32AsHexAndCrc8AsHex').innerHTML = '';
     $('md5AsAscii85').innerHTML = '';
-    $('md5').innerHTML = '';
-    $('sha1').innerHTML = '';
-    $('sha256').innerHTML = '';
-    $('sha512').innerHTML = '';
+    $('md5AsHex').innerHTML = '';
+    $('sha1AsHex').innerHTML = '';
+    $('sha256AsHex').innerHTML = '';
+    $('sha512AsHex').innerHTML = '';
   }
 
   function escapeHtmlText(text){
@@ -135,6 +137,9 @@
 
     var
       concatStory = values.join(';'),
+      crc32 = Crc32Str(concatStory),
+      crc8AsHex = Hex8(Crc8Str(concatStory)).slice(2).toLowerCase(),
+      crc32AsHex = Hex32(crc32).slice(2).toLowerCase(),
       md5AsRawString = rstr_md5(str2rstr_utf8(concatStory)),
       md5AsHex = rstr2hex(md5AsRawString),
       md5BytesArray = map(md5AsRawString, function(c){
@@ -142,11 +147,13 @@
       }),
       md5AsAscii85 = ascii85.encode(md5BytesArray);
 
+    $('crc32As6Digits').innerHTML = String(crc32).slice(-6);
+    $('crc32AsHexAndCrc8AsHex').innerHTML = crc32AsHex+crc8AsHex;
     $('md5AsAscii85').innerHTML = escapeHtmlText(md5AsAscii85);
-    $('md5').innerHTML = md5AsHex;
-    $('sha1').innerHTML = sha1(concatStory);
-    $('sha256').innerHTML = sha256(concatStory);
-    $('sha512').innerHTML = sha512(concatStory);
+    $('md5AsHex').innerHTML = md5AsHex;
+    $('sha1AsHex').innerHTML = sha1(concatStory);
+    $('sha256AsHex').innerHTML = sha256(concatStory);
+    $('sha512AsHex').innerHTML = sha512(concatStory);
   }
 
   function onStoryChange(){
