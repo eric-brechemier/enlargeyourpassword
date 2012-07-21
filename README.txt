@@ -115,7 +115,6 @@ HISTORY
   2012-01-23, Added CSS Styles: pink colors, custom font for title
   2012-05-07, Completed support for size S using ASCII85 encoding of MD5
   2012-07-21, Added support for sizes XS and XXS using CRC32 and CRC8
-  XXXX-XX-XX, Added stealth mode: same foreground/background for inputs
-  XXXX-XX-XX, Added button to copy generated passwords
-  XXXX-XX-XX, Hide generated passwords in stealth mode
+  XXXX-XX-XX, Use Passwordia font to conceal inputs and passwords by default
+  XXXX-XX-XX, Add color hash as visual indicator in stealth mode
 
