@@ -6,12 +6,12 @@
     <meta name="description" content=
 "Tired of reusing that same old password all over the web?
 Spice it up and get a real strong password!
-Coming in five sizes: S, M, L, XL and our favorite XXL."
+Coming in seven sizes from XXS to our favorite XXL."
     />
     <meta name="keywords" content="password online tools security opensource"/>
     <link rel="schema.DCTERMS" href="http://purl.org/dc/terms/" />
     <meta name="DC.creator" content="Eric Bréchemier" />
-    <meta name="DC.date" content="2012-03-02" />
+    <meta name="DC.date" content="2012-07-21" />
     <meta name="DC.rights" content="CC-BY Eric Bréchemier" />
     <meta name="DC.rights" scheme="DCTERMS.URI" content=
       "http://creativecommons.org/licenses/by-nc-sa/3.0/" />
@@ -21,7 +21,7 @@ Coming in five sizes: S, M, L, XL and our favorite XXL."
     <p>
       <span>Tired of reusing that same old password all over the web?</span>
       <span>Spice it up and get a real strong password!</span>
-      <span>Coming in five sizes: S, M, L, XL and our favorite XXL.</span>
+      <span>Coming in seven sizes from XXS to our favorite XXL.</span>
     </p>
     <h1>Enlarge Your Password!</h1>
     <p>
@@ -63,24 +63,32 @@ Coming in five sizes: S, M, L, XL and our favorite XXL."
       <button type="button" id="generate">Generate Strong Passwords</button>
       <ul>
         <li>
+          <strong>XXS (6 digits):</strong>
+          <span class="XXS password" id="crc32As6Digits"></span>
+        </li>
+        <li>
+          <strong>XS (10 characters):</strong>
+          <span class="XS password" id="crc32AsHexAndCrc8AsHex"></span>
+        </li>
+        <li>
           <strong>S (20 characters):</strong>
           <span class="S password" id="md5AsAscii85"></span>
         </li>
         <li>
           <strong>M (32 characters):</strong>
-          <span class="M password" id="md5"></span>
+          <span class="M password" id="md5AsHex"></span>
         </li>
         <li>
           <strong>L (40 characters):</strong>
-          <span class="L password" id="sha1"></span>
+          <span class="L password" id="sha1AsHex"></span>
         </li>
         <li>
           <strong>XL (64 characters):</strong>
-          <span class="XL password" id="sha256"></span>
+          <span class="XL password" id="sha256AsHex"></span>
         </li>
         <li>
           <strong>XXL (128 characters):</strong>
-          <span class="XXL password" id="sha512"></span>
+          <span class="XXL password" id="sha512AsHex"></span>
         </li>
       </ul>
     </fieldset>
@@ -110,6 +118,10 @@ Coming in five sizes: S, M, L, XL and our favorite XXL."
       <span>and still secured enough for sensitive information.</span>
       <span>Longer passwords will be even harder to break</span>
       <span>but may not be allowed by all services.</span>
+    </p>
+    <p>
+      <span>XS &amp; XXS sizes present weak passwords,</span>
+      <span>better than nothing when there is no alternative.</span>
     </p>
     <p>
       <span>You may find useful to double-click</span>
@@ -151,9 +163,11 @@ Coming in five sizes: S, M, L, XL and our favorite XXL."
     <p>
       <span>The same password is generated consistently</span>
       <span>for the same inputs.</span>
-      <span>Five sizes of passwords are available,</span>
+      <span>Seven sizes of passwords are available,</span>
       <span>corresponding to different</span>
       <span>hash algorithms and encodings:</span>
+      <span>XXS (CRC32/truncated),</span>
+      <span>XS (CRC32/HEX,CRC8/HEX),</span>
       <span>S (MD5/ASCII85),</span>
       <span>M (MD5/HEX),</span>
       <span>L (SHA-1/HEX),</span>
@@ -177,7 +191,13 @@ Coming in five sizes: S, M, L, XL and our favorite XXL."
         <a href="http://dojotoolkit.org/reference-guide/dojox/encoding.html"
         >DojoX Encoding by Eugene Lazutkin, Tom Trenka</a>
       </li>
+      <li>
+        CRC8 and CRC32 implementations from
+        <a href="http://www.digsys.se/JavaScript/CRC.aspx"
+        >JavaScript CRC by Anders Danielsson</a>
+      </li>
     </ul>
+    <script type="text/javascript" src="js/crc.js"></script>
     <script type="text/javascript" src="js/md5.js"></script>
     <script type="text/javascript" src="js/sha1.js"></script>
     <script type="text/javascript" src="js/sha256.js"></script>
