@@ -6,7 +6,6 @@
  *            http://creativecommons.org/licenses/by/3.0/
  * Version:   2012-08-04
  */
-/*jslint nomen:false, white:false, onevar:false, plusplus:false */
 /*global scope, document, window */
 scope(function(context) {
   // Closure to prive private scope
