@@ -11,6 +11,10 @@
 scope(function(context) {
   // Closure to prive private scope
 
+  var
+    // Declare aliases
+    crc = context.crc;
+
   // Utility functions
 
   function bind(func,thisArg){
@@ -137,9 +141,9 @@ scope(function(context) {
 
     var
       concatStory = values.join(';'),
-      crc32 = Crc32Str(concatStory),
-      crc8AsHex = Hex8(Crc8Str(concatStory)).slice(2).toLowerCase(),
-      crc32AsHex = Hex32(crc32).slice(2).toLowerCase(),
+      crc32 = crc.crc32(concatStory),
+      crc8AsHex = crc.hex8(crc.crc8(concatStory)).slice(2).toLowerCase(),
+      crc32AsHex = crc.hex32(crc32).slice(2).toLowerCase(),
       md5AsRawString = rstr_md5(str2rstr_utf8(concatStory)),
       md5AsHex = rstr2hex(md5AsRawString),
       md5BytesArray = map(md5AsRawString, function(c){
@@ -203,4 +207,4 @@ scope(function(context) {
     input.onchange = onStoryChange;
   });
 
-});
+},["crc"]);
