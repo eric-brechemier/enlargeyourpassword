@@ -7,7 +7,7 @@
  * Version:   2012-08-04
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global scope, document, window, hex_sha256, hex_sha512 */
+/*global scope, document, window, hex_sha512 */
 scope(function(context) {
   // Closure to prive private scope
 
@@ -50,9 +50,9 @@ scope(function(context) {
     crc = context.crc,
     md5 = context.md5,
     sha1 = context.sha1,
+    sha256 = context.sha256,
 
     $ = bind(document.getElementById,document),
-    sha256 = hex_sha256,  /*requires js/sha256.js */
     sha512 = hex_sha512,  /*requires js/sha512.js */
 
   // private fields
@@ -155,7 +155,7 @@ scope(function(context) {
     $('md5AsAscii85').innerHTML = escapeHtmlText(md5AsAscii85);
     $('md5AsHex').innerHTML = md5AsHex;
     $('sha1AsHex').innerHTML = sha1.asHex(concatStory);
-    $('sha256AsHex').innerHTML = sha256(concatStory);
+    $('sha256AsHex').innerHTML = sha256.asHex(concatStory);
     $('sha512AsHex').innerHTML = sha512(concatStory);
   }
 
