@@ -1,6 +1,6 @@
-define(["dojo/_base/lang"], function(lang) {
+scope(function(){
 
-	var ascii85 = lang.getObject("dojox.encoding.ascii85", true);
+	var ascii85 = {};
 	/*=====
 		ascii85 = dojox.encoding.ascii85;
 	=====*/
@@ -62,4 +62,4 @@ define(["dojo/_base/lang"], function(lang) {
 	};
 
 	return ascii85;
-});
+},[],"ascii85");

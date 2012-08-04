@@ -52,6 +52,7 @@ scope(function(context) {
     sha1 = context.sha1,
     sha256 = context.sha256,
     sha512 = context.sha512,
+    ascii85 = context.ascii85,
 
     $ = bind(document.getElementById,document),
 
