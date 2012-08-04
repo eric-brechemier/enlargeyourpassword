@@ -7,7 +7,7 @@
  * Version:   2012-08-04
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global scope, document, window, hex_sha1, hex_sha256, hex_sha512 */
+/*global scope, document, window, hex_sha256, hex_sha512 */
 scope(function(context) {
   // Closure to prive private scope
 
@@ -49,9 +49,9 @@ scope(function(context) {
     // Declare aliases
     crc = context.crc,
     md5 = context.md5,
+    sha1 = context.sha1,
 
     $ = bind(document.getElementById,document),
-    sha1 = hex_sha1,      /*requires js/sha1.js */
     sha256 = hex_sha256,  /*requires js/sha256.js */
     sha512 = hex_sha512,  /*requires js/sha512.js */
 
@@ -154,7 +154,7 @@ scope(function(context) {
     $('crc32AsHexAndCrc8AsHex').innerHTML = crc32AsHex+crc8AsHex;
     $('md5AsAscii85').innerHTML = escapeHtmlText(md5AsAscii85);
     $('md5AsHex').innerHTML = md5AsHex;
-    $('sha1AsHex').innerHTML = sha1(concatStory);
+    $('sha1AsHex').innerHTML = sha1.asHex(concatStory);
     $('sha256AsHex').innerHTML = sha256(concatStory);
     $('sha512AsHex').innerHTML = sha512(concatStory);
   }
