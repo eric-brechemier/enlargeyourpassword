@@ -207,4 +207,4 @@ scope(function(context) {
     input.onchange = onStoryChange;
   });
 
-},["crc","md5"]);
+},["crc","md5","crc","md5","sha1","sha256","sha512","ascii85"]);
