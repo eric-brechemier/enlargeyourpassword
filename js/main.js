@@ -7,13 +7,9 @@
  * Version:   2012-08-04
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global scope, document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
+/*global scope, document, window, hex_sha1, hex_sha256, hex_sha512 */
 scope(function(context) {
   // Closure to prive private scope
-
-  var
-    // Declare aliases
-    crc = context.crc;
 
   // Utility functions
 
@@ -49,18 +45,21 @@ scope(function(context) {
     return results;
   }
 
-  // declare aliases
-  var $ = bind(document.getElementById,document),
-      md5 = hex_md5,        /*requires js/md5.js */
-      sha1 = hex_sha1,      /*requires js/sha1.js */
-      sha256 = hex_sha256,  /*requires js/sha256.js */
-      sha512 = hex_sha512,  /*requires js/sha512.js */
+  var
+    // Declare aliases
+    crc = context.crc,
+    md5 = context.md5,
+
+    $ = bind(document.getElementById,document),
+    sha1 = hex_sha1,      /*requires js/sha1.js */
+    sha256 = hex_sha256,  /*requires js/sha256.js */
+    sha512 = hex_sha512,  /*requires js/sha512.js */
 
   // private fields
-      // array of DOM input elements in the story, in document order
-      inputs = [],
-      // any, timeout to reset inputs after TIMEOUT_DELAY_MS in background
-      resetTimeout = null,
+    // array of DOM input elements in the story, in document order
+    inputs = [],
+    // any, timeout to reset inputs after TIMEOUT_DELAY_MS in background
+    resetTimeout = null,
 
   // constants
       // number, one second in milliseconds
@@ -144,8 +143,8 @@ scope(function(context) {
       crc32 = crc.crc32(concatStory),
       crc8AsHex = crc.hex8(crc.crc8(concatStory)).slice(2).toLowerCase(),
       crc32AsHex = crc.hex32(crc32).slice(2).toLowerCase(),
-      md5AsRawString = rstr_md5(str2rstr_utf8(concatStory)),
-      md5AsHex = rstr2hex(md5AsRawString),
+      md5AsRawString = md5.asRawString(md5.string.toRawString(concatStory)),
+      md5AsHex = md5.rawString.toHex(md5AsRawString),
       md5BytesArray = map(md5AsRawString, function(c){
         return c.charCodeAt(0);
       }),
@@ -207,4 +206,4 @@ scope(function(context) {
     input.onchange = onStoryChange;
   });
 
-},["crc"]);
+},["crc","md5"]);
