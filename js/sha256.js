@@ -8,6 +8,7 @@
  * Also http://anmar.eu.org/projects/jssha2/
  */
 
+/*global scope */
 scope(function(){
 
   /*

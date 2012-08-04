@@ -7,6 +7,7 @@
  * See http://pajhome.org.uk/crypt/md5 for more info.
  */
 
+/*global scope */
 scope(function(){
 
   /*

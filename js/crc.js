@@ -7,6 +7,7 @@
             used as desired without restrictions.
 */
 
+/*global scope */
 scope(function(){
 
   /*

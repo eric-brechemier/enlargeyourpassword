@@ -1,3 +1,4 @@
+/* global scope */
 scope(function(){
 
 	var ascii85 = {};
