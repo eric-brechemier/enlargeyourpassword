@@ -1,6 +1,15 @@
-define(["dojo/_base/lang"], function(lang) {
+/*
+  dojox.encoding.ascii85
+  by Eugene Lazutkin, Tom Trenka
 
-	var ascii85 = lang.getObject("dojox.encoding.ascii85", true);
+  Version 0.1.0, 2007-07-30, Copyright (C) the Dojo Foundation
+  Distributed under the BSD License part of the Dojo ToolKit SDK
+*/
+
+/* global scope */
+scope(function(){
+
+	var ascii85 = {};
 	/*=====
 		ascii85 = dojox.encoding.ascii85;
 	=====*/
@@ -62,4 +71,4 @@ define(["dojo/_base/lang"], function(lang) {
 	};
 
 	return ascii85;
-});
+},[],"ascii85");

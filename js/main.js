@@ -4,59 +4,32 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2012-07-21
+ * Version:   2012-08-04
  */
-/*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
-(function() {
-  // Closure to prive private scope
 
-  // Utility functions
+/*global scope */
+scope(function(context) {
 
-  function bind(func,thisArg){
-    // Create a closure to call given function applied to given thisArg
-    return function(){
-      return func.apply(thisArg,arguments);
-    };
-  }
-
-  function foreach(array,func){
-    // Apply given function to each item in given array in turn.
-    // The current item, current index (0-based), and the length of the array
-    // are provided as arguments.
-    if (!array){
-      return;
-    }
-    var i, length;
-    for (i=0, length=array.length; i<length; i++){
-      func(array[i],i,length);
-    }
-  }
-
-  function map(array,func){
-    // Map given function to each item in given array.
-    // Returns an array of the same length as given array, with each item being
-    // the result of the function applied to the item in the same position.
-
-    var results = [];
-    foreach(array,function(item){
-      results.push( func(item) );
-    });
-    return results;
-  }
-
-  // declare aliases
-  var $ = bind(document.getElementById,document),
-      md5 = hex_md5,        /*requires js/md5.js */
-      sha1 = hex_sha1,      /*requires js/sha1.js */
-      sha256 = hex_sha256,  /*requires js/sha256.js */
-      sha512 = hex_sha512,  /*requires js/sha512.js */
+  var
+    // Declare aliases
+    crc = context.crc,
+    md5 = context.md5,
+    sha1 = context.sha1,
+    sha256 = context.sha256,
+    sha512 = context.sha512,
+    ascii85 = context.ascii85,
+    foreach = context.foreach,
+    map = context.map,
+    dom = context.dom,
+    $ = dom.get,
+    escapeHtmlText = dom.escapeHtml,
+    window = context.window,
 
   // private fields
-      // array of DOM input elements in the story, in document order
-      inputs = [],
-      // any, timeout to reset inputs after TIMEOUT_DELAY_MS in background
-      resetTimeout = null,
+    // array of DOM input elements in the story, in document order
+    inputs = [],
+    // any, timeout to reset inputs after TIMEOUT_DELAY_MS in background
+    resetTimeout = null,
 
   // constants
       // number, one second in milliseconds
@@ -106,28 +79,6 @@
     $('sha512AsHex').innerHTML = '';
   }
 
-  function escapeHtmlText(text){
-    // Escape < and & which may be interpreted as markup in HTML text
-    //
-    // parameter:
-    //   text - string, text which may contain < and &
-    //
-    // returns:
-    //   string, the same text with
-    //     '<' replaced with &lt; and
-    //     '&' replaced with &amp;
-
-    var
-      escaped = {
-        '<': '&lt;',
-        '&': '&amp;'
-      };
-
-    return text.replace(/[<&]/g,function(match){
-      return escaped[match];
-    });
-  }
-
   function generatePasswords(values){
     // Generate passwords and assign to corresponding elements in display.
     //
@@ -137,11 +88,11 @@
 
     var
       concatStory = values.join(';'),
-      crc32 = Crc32Str(concatStory),
-      crc8AsHex = Hex8(Crc8Str(concatStory)).slice(2).toLowerCase(),
-      crc32AsHex = Hex32(crc32).slice(2).toLowerCase(),
-      md5AsRawString = rstr_md5(str2rstr_utf8(concatStory)),
-      md5AsHex = rstr2hex(md5AsRawString),
+      crc32 = crc.crc32(concatStory),
+      crc8AsHex = crc.hex8(crc.crc8(concatStory)).slice(2).toLowerCase(),
+      crc32AsHex = crc.hex32(crc32).slice(2).toLowerCase(),
+      md5AsRawString = md5.asRawString(md5.string.toRawString(concatStory)),
+      md5AsHex = md5.rawString.toHex(md5AsRawString),
       md5BytesArray = map(md5AsRawString, function(c){
         return c.charCodeAt(0);
       }),
@@ -151,9 +102,9 @@
     $('crc32AsHexAndCrc8AsHex').innerHTML = crc32AsHex+crc8AsHex;
     $('md5AsAscii85').innerHTML = escapeHtmlText(md5AsAscii85);
     $('md5AsHex').innerHTML = md5AsHex;
-    $('sha1AsHex').innerHTML = sha1(concatStory);
-    $('sha256AsHex').innerHTML = sha256(concatStory);
-    $('sha512AsHex').innerHTML = sha512(concatStory);
+    $('sha1AsHex').innerHTML = sha1.asHex(concatStory);
+    $('sha256AsHex').innerHTML = sha256.asHex(concatStory);
+    $('sha512AsHex').innerHTML = sha512.asHex(concatStory);
   }
 
   function onStoryChange(){
@@ -203,4 +154,8 @@
     input.onchange = onStoryChange;
   });
 
-}());
+},
+[
+  "window","dom","foreach","map",
+  "crc","md5","crc","md5","sha1","sha256","sha512","ascii85"
+]);
