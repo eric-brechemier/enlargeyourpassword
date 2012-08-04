@@ -7,7 +7,7 @@
  * Version:   2012-08-04
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global scope, document, window, hex_sha512 */
+/*global scope, document, window */
 scope(function(context) {
   // Closure to prive private scope
 
@@ -51,9 +51,9 @@ scope(function(context) {
     md5 = context.md5,
     sha1 = context.sha1,
     sha256 = context.sha256,
+    sha512 = context.sha512,
 
     $ = bind(document.getElementById,document),
-    sha512 = hex_sha512,  /*requires js/sha512.js */
 
   // private fields
     // array of DOM input elements in the story, in document order
@@ -156,7 +156,7 @@ scope(function(context) {
     $('md5AsHex').innerHTML = md5AsHex;
     $('sha1AsHex').innerHTML = sha1.asHex(concatStory);
     $('sha256AsHex').innerHTML = sha256.asHex(concatStory);
-    $('sha512AsHex').innerHTML = sha512(concatStory);
+    $('sha512AsHex').innerHTML = sha512.asHex(concatStory);
   }
 
   function onStoryChange(){
