@@ -1,0 +1,85 @@
+/*
+ * File:      utils.js - Utility Functions used in enlargeyourpassword.com
+ *
+ * Author:    Eric Bréchemier <github@eric.brechemier.name>
+ * License:   Creative Commons Attribution 3.0 Unported
+ *            http://creativecommons.org/licenses/by/3.0/
+ * Version:   2012-08-04
+ */
+/*global scope */
+
+scope(function(){
+  function foreach(array,func){
+    // Apply given function to each item in given array in turn.
+    // The current item, current index (0-based), and the length of the array
+    // are provided as arguments.
+    if (!array){
+      return;
+    }
+    var i, length;
+    for (i=0, length=array.length; i<length; i++){
+      func(array[i],i,length);
+    }
+  }
+  return foreach;
+},[],"foreach");
+
+scope(function(context){
+  var
+    foreach = context.foreach;
+  function map(array,func){
+    // Map given function to each item in given array.
+    // Returns an array of the same length as given array, with each item being
+    // the result of the function applied to the item in the same position.
+
+    var results = [];
+    foreach(array,function(item){
+      results.push( func(item) );
+    });
+    return results;
+  }
+  return map;
+},["foreach"],"map");
+
+scope(function(){
+  function bind(func,thisArg){
+    // Create a closure to call given function applied to given thisArg
+    return function(){
+      return func.apply(thisArg,arguments);
+    };
+  }
+  return bind;
+},[],"bind");
+
+scope(function(context){
+  var
+    document = context.document,
+    bind = context.bind;
+
+  function escapeHtml(text){
+    // Escape < and & which may be interpreted as markup in HTML text
+    //
+    // parameter:
+    //   text - string, text which may contain < and &
+    //
+    // returns:
+    //   string, the same text with
+    //     '<' replaced with &lt; and
+    //     '&' replaced with &amp;
+
+    var
+      escaped = {
+        '<': '&lt;',
+        '&': '&amp;'
+      };
+
+    return text.replace(/[<&]/g,function(match){
+      return escaped[match];
+    });
+  }
+
+  return {
+    get: bind(document.getElementById,document),
+    escapeHtml: escapeHtml
+  };
+},["document","bind"],"dom");

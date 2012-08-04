@@ -6,43 +6,9 @@
  *            http://creativecommons.org/licenses/by/3.0/
  * Version:   2012-08-04
  */
-/*global scope, document, window */
+
+/*global scope */
 scope(function(context) {
-  // Closure to prive private scope
-
-  // Utility functions
-
-  function bind(func,thisArg){
-    // Create a closure to call given function applied to given thisArg
-    return function(){
-      return func.apply(thisArg,arguments);
-    };
-  }
-
-  function foreach(array,func){
-    // Apply given function to each item in given array in turn.
-    // The current item, current index (0-based), and the length of the array
-    // are provided as arguments.
-    if (!array){
-      return;
-    }
-    var i, length;
-    for (i=0, length=array.length; i<length; i++){
-      func(array[i],i,length);
-    }
-  }
-
-  function map(array,func){
-    // Map given function to each item in given array.
-    // Returns an array of the same length as given array, with each item being
-    // the result of the function applied to the item in the same position.
-
-    var results = [];
-    foreach(array,function(item){
-      results.push( func(item) );
-    });
-    return results;
-  }
 
   var
     // Declare aliases
@@ -52,8 +18,12 @@ scope(function(context) {
     sha256 = context.sha256,
     sha512 = context.sha512,
     ascii85 = context.ascii85,
-
-    $ = bind(document.getElementById,document),
+    foreach = context.foreach,
+    map = context.map,
+    dom = context.dom,
+    $ = dom.get,
+    escapeHtmlText = dom.escapeHtml,
+    window = context.window,
 
   // private fields
     // array of DOM input elements in the story, in document order
@@ -107,28 +77,6 @@ scope(function(context) {
     $('sha1AsHex').innerHTML = '';
     $('sha256AsHex').innerHTML = '';
     $('sha512AsHex').innerHTML = '';
-  }
-
-  function escapeHtmlText(text){
-    // Escape < and & which may be interpreted as markup in HTML text
-    //
-    // parameter:
-    //   text - string, text which may contain < and &
-    //
-    // returns:
-    //   string, the same text with
-    //     '<' replaced with &lt; and
-    //     '&' replaced with &amp;
-
-    var
-      escaped = {
-        '<': '&lt;',
-        '&': '&amp;'
-      };
-
-    return text.replace(/[<&]/g,function(match){
-      return escaped[match];
-    });
   }
 
   function generatePasswords(values){
@@ -206,4 +154,8 @@ scope(function(context) {
     input.onchange = onStoryChange;
   });
 
-},["crc","md5","crc","md5","sha1","sha256","sha512","ascii85"]);
+},
+[
+  "window","dom","foreach","map",
+  "crc","md5","crc","md5","sha1","sha256","sha512","ascii85"
+]);
