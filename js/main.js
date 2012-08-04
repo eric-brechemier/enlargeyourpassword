@@ -4,11 +4,11 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2012-07-21
+ * Version:   2012-08-04
  */
 /*jslint nomen:false, white:false, onevar:false, plusplus:false */
-/*global document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
-(function() {
+/*global scope, document, window, hex_md5, hex_sha1, hex_sha256, hex_sha512 */
+scope(function(context) {
   // Closure to prive private scope
 
   // Utility functions
@@ -203,4 +203,4 @@
     input.onchange = onStoryChange;
   });
 
-}());
+});
