@@ -1,3 +1,11 @@
+/*
+  dojox.encoding.ascii85
+  by Eugene Lazutkin, Tom Trenka
+
+  Version 0.1.0, 2007-07-30, Copyright (C) the Dojo Foundation
+  Distributed under the BSD License part of the Dojo ToolKit SDK
+*/
+
 /* global scope */
 scope(function(){
 
