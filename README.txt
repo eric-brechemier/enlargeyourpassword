@@ -18,6 +18,11 @@ LICENSE
   Creative Commons Attribution 3.0 Unported
   http://creativecommons.org/licenses/by/3.0/
 
+  Includes scope-level1-global.js from scope-or-not project
+  Distributed under the MIT License
+  https://github.com/eric-brechemier/scopeornot
+  Developed by Eric Bréchemier
+
   Includes md5.js, sha1.js, sha256.js and sha512.js from jshash
   Distributed under the BSD License
   http://pajhome.org.uk/crypt/md5/scripts.html
@@ -115,6 +120,7 @@ HISTORY
   2012-01-23, Added CSS Styles: pink colors, custom font for title
   2012-05-07, Completed support for size S using ASCII85 encoding of MD5
   2012-07-21, Added support for sizes XS and XXS using CRC32 and CRC8
+  2012-08-04, Use scope() from scope-or-not project to declare modules
   XXXX-XX-XX, Use Passwordia font to conceal inputs and passwords by default
   XXXX-XX-XX, Add color hash as visual indicator in stealth mode
 
