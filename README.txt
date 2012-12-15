@@ -121,6 +121,7 @@ HISTORY
   2012-05-07, Completed support for size S using ASCII85 encoding of MD5
   2012-07-21, Added support for sizes XS and XXS using CRC32 and CRC8
   2012-08-04, Use scope() from scope-or-not project to declare modules
+  2012-12-15, Added styles for width of inputs
   XXXX-XX-XX, Use Passwordia font to conceal inputs and passwords by default
   XXXX-XX-XX, Add color hash as visual indicator in stealth mode
 
