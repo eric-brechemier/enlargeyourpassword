@@ -18,6 +18,10 @@ LICENSE
   Creative Commons Attribution 3.0 Unported
   http://creativecommons.org/licenses/by/3.0/
 
+  Includes Indubitably NF by Nick Curtis, courtesy of Nick's Fonts.
+  Web fonts distributed by Font Squirrel:
+  http://www.fontsquirrel.com/fonts/Indubitably
+
   Includes scope-level1-global.js from scope-or-not project
   Distributed under the MIT License
   https://github.com/eric-brechemier/scopeornot
