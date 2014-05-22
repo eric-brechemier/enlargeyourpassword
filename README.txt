@@ -15,8 +15,12 @@ DESCRIPTION
 LICENSE
 
   CC-BY Eric Bréchemier
-  Creative Commons Attribution 3.0 Unported
-  http://creativecommons.org/licenses/by/3.0/
+  Creative Commons Attribution 4.0 International
+  http://creativecommons.org/licenses/by/4.0/
+
+  Includes Indubitably NF by Nick Curtis, courtesy of Nick's Fonts.
+  Web fonts distributed by Font Squirrel:
+  http://www.fontsquirrel.com/fonts/Indubitably
 
   Includes scope-level1-global.js from scope-or-not project
   Distributed under the MIT License
@@ -122,6 +126,7 @@ HISTORY
   2012-07-21, Added support for sizes XS and XXS using CRC32 and CRC8
   2012-08-04, Use scope() from scope-or-not project to declare modules
   2012-12-15, Added styles for width of inputs
+  2014-05-22, Inherit font styles in inputs
   XXXX-XX-XX, Use Passwordia font to conceal inputs and passwords by default
   XXXX-XX-XX, Add color hash as visual indicator in stealth mode
 
