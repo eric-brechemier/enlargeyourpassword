@@ -15,8 +15,8 @@ DESCRIPTION
 LICENSE
 
   CC-BY Eric Bréchemier
-  Creative Commons Attribution 3.0 Unported
-  http://creativecommons.org/licenses/by/3.0/
+  Creative Commons Attribution 4.0 International
+  http://creativecommons.org/licenses/by/4.0/
 
   Includes Indubitably NF by Nick Curtis, courtesy of Nick's Fonts.
   Web fonts distributed by Font Squirrel:

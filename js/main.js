@@ -2,8 +2,8 @@
  * File:      main.js - Main Script for enlargeyourpassword.com
  *
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
- * License:   Creative Commons Attribution 3.0 Unported
- *            http://creativecommons.org/licenses/by/3.0/
+ * License:   Creative Commons Attribution 4.0 International
+ *            http://creativecommons.org/licenses/by/4.0/
  * Version:   2012-08-04
  */
 
