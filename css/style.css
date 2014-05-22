@@ -87,6 +87,9 @@ legend {
 
 input {
   margin: 0.45em 0;
+}
+
+input, button {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
