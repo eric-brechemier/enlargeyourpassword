@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 3.0 Unported
  *            http://creativecommons.org/licenses/by/3.0/
- * Version:   2012-12-15
+ * Version:   2014-05-22
  */
 
 html, body, h1, h2, h3, p, span, em, strong, fieldset, legend, label, ul, li {
@@ -87,6 +87,11 @@ legend {
 
 input {
   margin: 0.45em 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+  font-style: inherit;
 }
 
 button {
