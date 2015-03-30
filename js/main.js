@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 4.0 International
  *            http://creativecommons.org/licenses/by/4.0/
- * Version:   2012-08-04
+ * Version:   2015-03-30
  */
 
 /*global scope */
@@ -28,8 +28,9 @@ scope(function(context) {
   // private fields
     // array of DOM input elements in the story, in document order
     inputs = [],
-    // any, timeout to reset inputs after TIMEOUT_DELAY_MS in background
-    resetTimeout = null,
+    // any, timeout to reload the page to clear inputs
+    // after TIMEOUT_DELAY_MS spent in the background (window lost focus)
+    reloadTimeout = null,
 
   // constants
       // number, one second in milliseconds
@@ -127,19 +128,22 @@ scope(function(context) {
 
   // ensure that inputs are empty in tab restored from history
   window.onload = reset;
-  window.onunload = reset; // Note: this one has no effect in Firefox, when a
-                           // tab is restored from history, it still has values
+  window.onunload = reset; // Note: this one alone has no effect in Firefox,
+                           // when a tab is restored from history,
+                           // it still has values initially
 
-  // reset after TIMEOUT_DELAY_MS in the background (window loses focus)
+  // reload after TIMEOUT_DELAY_MS in the background (window loses focus)
+  // to clear inputs and prevent unwanted prying, including through
+  // undo cache in each input (ctrl+z / cmd+z)
   window.onblur = function(){
-    resetTimeout = setTimeout(function(){
-      reset();
+    reloadTimeout = setTimeout(function(){
+      window.location.reload();
     },TIMEOUT_DELAY_MS);
   };
 
   // cancel the timeout when window is back to foreground (gains focus)
   window.onfocus = function(){
-    clearTimeout(resetTimeout);
+    clearTimeout(reloadTimeout);
   };
 
   // The generate button acts as a "visual proxy" for the generation process.
