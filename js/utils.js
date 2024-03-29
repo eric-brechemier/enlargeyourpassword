@@ -4,9 +4,29 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 4.0 International
  *            http://creativecommons.org/licenses/by/4.0/
- * Version:   2012-08-04
+ * Version:   2024-03-29
  */
 /*global scope */
+
+scope(function(){
+  function trim( string ) {
+    // Trim given string (remove whitespace on both ends)
+    // Returns a copy of the given string with all the whitespace
+    // characters found at the start and end of the string removed.
+    //
+    // Details of the regular expression used below:
+    // Replace any substring matching:
+    //   ^ the start of the string
+    //   \s+ followed with one or several white-space characters
+    //   | or
+    //   \s+ one or several white-space characters
+    //   $ followed with the end of the string
+    // with:
+    //   an empty string
+    return string.replace( /^\s+|\s+$/g, "" );
+  }
+  return trim;
+},[],"trim");
 
 scope(function(){
   function foreach(array,func){
