@@ -4,7 +4,7 @@
  * Author:    Eric Bréchemier <github@eric.brechemier.name>
  * License:   Creative Commons Attribution 4.0 International
  *            http://creativecommons.org/licenses/by/4.0/
- * Version:   2015-03-30
+ * Version:   2024-03-29
  */
 
 /*global scope */
@@ -18,6 +18,7 @@ scope(function(context) {
     sha256 = context.sha256,
     sha512 = context.sha512,
     ascii85 = context.ascii85,
+    trim = context.trim,
     foreach = context.foreach,
     map = context.map,
     dom = context.dom,
@@ -57,7 +58,9 @@ scope(function(context) {
   function getInputValues(){
     // Get an array of values of all collected inputs.
     return map(inputs,function(input){
-      return input.value;
+      // Trim each collected value without changing the field itself,
+      // to allow typing a sentence with space characters between words.
+      return trim( input.value );
     });
   }
 
@@ -160,6 +163,6 @@ scope(function(context) {
 
 },
 [
-  "window","dom","foreach","map",
+  "window","dom","trim","foreach","map",
   "crc","md5","crc","md5","sha1","sha256","sha512","ascii85"
 ]);
