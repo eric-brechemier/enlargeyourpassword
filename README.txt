@@ -129,6 +129,8 @@ HISTORY
   2014-05-22, Inherit font styles in inputs
   2015-03-30, Reload page to clear inputs 'undo' cache after 2'30 in background
   2024-03-29, Ignore space characters found at start and end of each input
+  XXXX-XX-XX, Add offline version as an Apple Numbers spreadsheet
+  XXXX-XX-XX, Add OpenDocument Spreadsheet (ODS) and Excel offline versions
   XXXX-XX-XX, Use Passwordia font to conceal inputs and passwords by default
   XXXX-XX-XX, Add color hash as visual indicator in stealth mode
 
