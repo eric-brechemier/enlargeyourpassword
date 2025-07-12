@@ -1,2 +1,5 @@
 # ignore temp vim files
 *.swp
+
+# ignore macOS metadata
+.DS_Store
