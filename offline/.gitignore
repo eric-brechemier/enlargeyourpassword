@@ -1,0 +1,4 @@
+# ignore Numbers source file with successive versions created during editing;
+# I later Save As... the file without Numbers versions for versioning in git,
+# removing the .versions part from the file extension.
+*.versions.numbers
