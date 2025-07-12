@@ -1,6 +1,6 @@
 
   Enlarge Your Password!
-  http://enlargeyourpassword.com
+  https://eric-brechemier.github.io/enlargeyourpassword/
 
 AUTHOR
 
@@ -118,7 +118,7 @@ DESIGN AND ALGORITHM FOR PASSWORD GENERATION
 
 HISTORY
 
-  2011-03-26, First release of http://enlargeyourpassword.com (no CSS style)
+  2011-03-26, First release of the online version: no CSS styles
   2011-04-02, Empty all fields on page load/unload and after 2'30 in background
   2011-04-04, Fixed wording, empty generated passwords as well on reset
   2012-01-23, Added CSS Styles: pink colors, custom font for title
