@@ -2,3 +2,6 @@
 # I later Save As... the file without Numbers versions for versioning in git,
 # removing the .versions part from the file extension.
 *.versions.numbers
+
+# ignore macOS metadata
+.DS_Store
