@@ -4,7 +4,7 @@
 
 AUTHOR
 
-  Eric Bréchemier <github.2025@eric.brechemier.name>
+  Eric Bréchemier
 
 DESCRIPTION
 
