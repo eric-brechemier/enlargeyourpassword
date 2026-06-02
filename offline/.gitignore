@@ -1,7 +1,7 @@
-# ignore Numbers source file with successive versions created during editing;
-# I later Save As... the file without Numbers versions for versioning in git,
-# removing the .versions part from the file extension.
+# Ignore intermediate versions of the spreadsheet
+# created for import and tests in Apple Numbers
 *.versions.numbers
+*.versions.xlsx
 
 # ignore macOS metadata
 .DS_Store
