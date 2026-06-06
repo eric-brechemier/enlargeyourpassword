@@ -8,6 +8,8 @@ enlarge-your-password.1.xlsx
 
 # 2. Import in Apple Numbers on macOS,
 #    Finder: Open With > Numbers.app
+#    Numbers: select Unicode sheet
+#    Numbers: change Unicode Compatibility value from 1 to 2
 #    Numbers: select trim sheet
 #    Numbers: change Trim Compatibility value from 1 to 2
 #    Numbers: remove initial quotes from each formula in column C
