@@ -1,6 +1,11 @@
 # Ignore intermediate versions of the spreadsheet
 # used to produce the Apple Numbers template for iPad
 
+# 0. Side version of working copy
+#    including test input (which I empty before committing)
+#    and all sheets visible (I hide all but the first one before committing)
+enlarge-your-password.0.ods
+
 # 1. Export from LibreOffice on macOS
 #    LibreOffice: File > Save a Copy...
 #                 File type: Excel 2007–365 (.xlsx)
